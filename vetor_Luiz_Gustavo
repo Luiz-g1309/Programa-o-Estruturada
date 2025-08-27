@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+#define TAM 30
+
+int main() {
+    float nota1[TAM], nota2[TAM], media[TAM];
+    float soma = 0, mediaTurma;
+    int i;
+
+    for (i = 0; i < TAM; i++) {
+        printf("Digite a primeira nota do aluno %d: ", i + 1);
+        scanf("%f", &nota1[i]);
+        printf("Digite a segunda nota do aluno %d: ", i + 1);
+        scanf("%f", &nota2[i]);
+
+        media[i] = (2 * nota1[i] + 3 * nota2[i]) / 5.0;
+        soma += media[i];
+    }
+
+    mediaTurma = soma / TAM;
+    printf("\nMédia da turma: %.2f\n", mediaTurma);
+
+    printf("\nAlunos acima da média da turma:\n");
+    for (i = 0; i < TAM; i++) {
+        if (media[i] > mediaTurma) {
+            printf("Aluno %d -> Nota1: %.2f | Nota2: %.2f | Média: %.2f\n",
+                   i + 1, nota1[i], nota2[i], media[i]);
+        }
+    }
+
+    return 0;
+}
